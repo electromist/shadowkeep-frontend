@@ -25,6 +25,7 @@
     "@launchui": "https://www.launchuicomponents.com/r/{name}.json",
     "@magicui": "https://magicui.design/r/{name}",
     "@scrollxui": "https://www.scrollxui.dev/registry/{name}.json",
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@smoothui": "https://smoothui.dev/r/{name}.json"
   }
 }

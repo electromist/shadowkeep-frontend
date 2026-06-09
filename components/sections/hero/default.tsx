@@ -11,7 +11,6 @@ import Screenshot from "../../ui/screenshot"
 import { Section } from "../../ui/section"
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text"
 import { ContainerScroll } from "@/components/ui/container-scroll-animation"
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 
 interface HeroButtonProps extends Omit<LinkButtonProps, "children"> {
   text: string
@@ -98,61 +97,43 @@ export default function Hero({
           <p className="text-md relative z-10 max-w-[740px] animate-appear font-medium text-balance text-muted-foreground opacity-0 delay-100 sm:text-xl">
             {description}
           </p>
-          {buttons.map((button) => {
-            const btn = (
-              <LinkButton
-                variant={button.variant || "default"}
-                size="lg"
-                href={button.href}
-                icon={button.icon}
-                iconRight={button.iconRight}
-              >
-                {button.text}
-              </LinkButton>
-            )
-
-            if (button.text === "Get Started") {
-              return (
-                <HoverBorderGradient
+          {buttons !== false && buttons.length > 0 && (
+            <div className="relative z-10 flex animate-appear justify-center gap-4 opacity-0 delay-300">
+              {buttons.map((button) => (
+                <LinkButton
                   key={`${button.href}-${button.text}`}
-                  as="div"
-                  containerClassName="rounded-full"
-                  className="p-0 bg-transparent border-0"
+                  variant={button.variant || "default"}
+                  size="lg"
+                  href={button.href}
+                  icon={button.icon}
+                  iconRight={button.iconRight}
                 >
-                  {btn}
-                </HoverBorderGradient>
-              )
-            }
-
-            return (
-              <div key={`${button.href}-${button.text}`}>
-                {btn}
-              </div>
-            )
-          })}
-        </div>
+                  {button.text}
+                </LinkButton>
+              ))}
+            </div>
           )}
-        {mockup !== false && (
-          <div className="relative w-full pt-12">
-            <ContainerScroll className="w-full">
-              <img
-                src="/linear.webp"
-                alt="hero"
-                height={720}
-                width={1400}
-                className="mx-auto h-full rounded-2xl object-cover object-left-top"
-                draggable={false}
-              />
-            </ContainerScroll>
+          {mockup !== false && (
+            <div className="relative w-full pt-12">
+              <ContainerScroll className="w-full">
+                <img
+                  src="/linear.webp"
+                  alt="hero"
+                  height={720}
+                  width={1400}
+                  className="mx-auto h-full rounded-2xl object-cover object-left-top"
+                  draggable={false}
+                />
+              </ContainerScroll>
 
-            <Glow
-              variant="top"
-              className="-z-10 animate-appear-zoom opacity-0 delay-1000"
-            />
-          </div>
-        )}
+              <Glow
+                variant="top"
+                className="-z-10 animate-appear-zoom opacity-0 delay-1000"
+              />
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-    </Section >
+    </Section>
   )
 }
