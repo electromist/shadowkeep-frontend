@@ -53,29 +53,39 @@ const TestimonialCard: React.FC<TestimonialCardProps> = React.memo(
 
     return (
       <div
-        className='w-full mb-4 shrink-0'
+        className='w-full mb-4 shrink-0 cursor-pointer'
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <Card
-          className={`transition-all duration-300 pointer-events-none relative overflow-hidden bg-zinc-900/90 dark:bg-[#18181b] border border-zinc-800/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] ${
+          className={`transition-all duration-700 pointer-events-none relative overflow-hidden bg-zinc-900/90 dark:bg-[#18181b] border border-zinc-800/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] ${
             isHovered ? 'text-white shadow-2xl border-transparent' : ''
           } ${cardClassName}`}
+          style={{
+            transitionDelay: isHovered ? '400ms' : '0ms',
+          }}
         >
-          {isHovered && (
-            <div
-              className={`absolute inset-0 bg-gradient-to-b ${gradientClass} z-0`}
-              style={{
-                maskImage:
-                  'linear-gradient(to bottom, transparent 40%, black 100%)',
-                WebkitMaskImage:
-                  'linear-gradient(to bottom, transparent 40%, black 100%)',
-              }}
-            />
-          )}
+          <div
+            className={`absolute inset-0 bg-gradient-to-b ${gradientClass} z-0 transition-opacity duration-1000 ease-out`}
+            style={{
+              opacity: isHovered ? 1 : 0,
+              transitionDelay: isHovered ? '400ms' : '0ms',
+              maskImage:
+                'linear-gradient(to bottom, transparent 40%, black 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent 40%, black 100%)',
+            }}
+          />
 
           <CardContent className='p-4 md:p-6 relative z-10'>
-            <p className='text-sm md:text-base mb-4 leading-relaxed transition-colors duration-300 text-zinc-700 dark:text-zinc-300'>
+            <p
+              className={`text-sm md:text-base mb-4 leading-relaxed transition-colors duration-700 ${
+                isHovered ? 'text-white' : 'text-zinc-700 dark:text-zinc-300'
+              }`}
+              style={{
+                transitionDelay: isHovered ? '400ms' : '0ms',
+              }}
+            >
               "{testimonial.review}"
             </p>
 
@@ -91,16 +101,22 @@ const TestimonialCard: React.FC<TestimonialCardProps> = React.memo(
               </Avatar>
               <div className='min-w-0'>
                 <p
-                  className={`font-semibold text-xs md:text-sm ${
+                  className={`font-semibold text-xs md:text-sm transition-colors duration-700 ${
                     isHovered ? 'text-white' : 'text-zinc-900 dark:text-zinc-100'
                   }`}
+                  style={{
+                    transitionDelay: isHovered ? '400ms' : '0ms',
+                  }}
                 >
                   {testimonial.name}
                 </p>
                 <p
-                  className={`text-xs ${
+                  className={`text-xs transition-colors duration-700 ${
                     isHovered ? 'text-white/80' : 'text-zinc-500 dark:text-zinc-400'
                   }`}
+                  style={{
+                    transitionDelay: isHovered ? '400ms' : '0ms',
+                  }}
                 >
                   {testimonial.handle}
                 </p>

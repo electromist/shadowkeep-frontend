@@ -125,7 +125,7 @@ export default function AnimatedStepper({
       <div
         aria-label="Progress steps"
         className={cn(
-          "relative flex",
+          "relative flex mx-auto w-full max-w-3xl",
           isHorizontal
             ? "flex-row items-center justify-between"
             : "flex-col items-start gap-2"
@@ -140,8 +140,7 @@ export default function AnimatedStepper({
             <div
               className={cn(
                 "relative z-10 flex items-center",
-                isHorizontal ? "flex-1" : "gap-3",
-                index < steps.length - 1 && isHorizontal && "flex-1"
+                isHorizontal ? (index === steps.length - 1 ? "flex-none" : "flex-1") : "gap-3"
               )}
               key={`${id}-step-${step.label}`}
             >

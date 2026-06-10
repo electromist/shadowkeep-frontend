@@ -9,30 +9,31 @@ import { BentoCard, BentoGrid } from "@/components/ui/bento-grid"
 import { Marquee } from "@/components/ui/marquee"
 import { AnimatedList } from "@/components/ui/animated-list"
 import { AnimatedBeam } from "@/components/ui/animated-beam"
+import { BlurFade } from "@/components/ui/blur-fade"
 
 // ==========================================
 // 1. Files List for Marquee
 // ==========================================
 const files = [
   {
-    name: "bitcoin.pdf",
-    body: "Bitcoin is a cryptocurrency invented in 2008 by an unknown person or group of people using the name Satoshi Nakamoto.",
+    name: "database.db",
+    body: "PostgreSQL backup containing isolated schemas and organization tables wrapped in AES ciphers.",
   },
   {
-    name: "finances.xlsx",
-    body: "A spreadsheet or worksheet is a file made of rows and columns that help sort data, arrange data easily, and calculate numerical data.",
+    name: "stripe_webhook.key",
+    body: "Stripe integration endpoint signing secret used for verifying raw webhook payment triggers.",
   },
   {
-    name: "logo.svg",
-    body: "Scalable Vector Graphics is an Extensible Markup Language-based vector image format for two-dimensional graphics with support for interactivity and animation.",
+    name: "jwt_signing.pem",
+    body: "RS256 Private key used for signing session JWT tokens with 15-minute rotation expirations.",
   },
   {
-    name: "keys.gpg",
-    body: "GPG keys are used to encrypt and decrypt email, files, directories, and whole disk partitions and to authenticate messages.",
+    name: "google_oauth.json",
+    body: "Client ID and client secret configuration mapping the Google OAuth authentication flow.",
   },
   {
-    name: "seed.txt",
-    body: "A seed phrase, seed recovery phrase or backup seed phrase is a list of words which store all the information needed to recover Bitcoin funds on-chain.",
+    name: "r2_credentials.env",
+    body: "Cloudflare R2 bucket access key IDs and endpoints storing encrypted file blobs securely.",
   },
 ]
 
@@ -49,31 +50,31 @@ interface NotificationItem {
 
 let notifications: NotificationItem[] = [
   {
-    name: "Payment received",
-    description: "Magic UI",
-    time: "15m ago",
-    icon: "💸",
-    color: "#00C9A7",
+    name: "File Encrypted & Uploaded",
+    description: "production_keys.env -> Cloudflare R2",
+    time: "10s ago",
+    icon: "🔒",
+    color: "#ff5c00",
   },
   {
-    name: "User signed up",
-    description: "Magic UI",
-    time: "10m ago",
-    icon: "👤",
+    name: "Secure Token Issued",
+    description: "JWT access_token created for Tenant A",
+    time: "2m ago",
+    icon: "🔑",
     color: "#FFB800",
   },
   {
-    name: "New message",
-    description: "Magic UI",
+    name: "Download Decrypted in RAM",
+    description: "db_dump.sql retrieved & decrypted",
     time: "5m ago",
-    icon: "💬",
-    color: "#FF3D71",
+    icon: "⚡",
+    color: "#00C9A7",
   },
   {
-    name: "New event",
-    description: "Magic UI",
-    time: "2m ago",
-    icon: "🗞️",
+    name: "Google OAuth callback",
+    description: "Authorized admin@acme.org",
+    time: "12m ago",
+    icon: "👤",
     color: "#1E86FF",
   },
 ];
@@ -244,8 +245,8 @@ export function AnimatedBeamMultipleOutputDemo({
 const features = [
   {
     Icon: FileTextIcon,
-    name: "Save your files",
-    description: "We automatically save your files as you type.",
+    name: "Envelope Encrypted Storage",
+    description: "Every file upload gets a randomized unique DEK, wrapped by a secure Master Key.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -279,8 +280,8 @@ const features = [
   },
   {
     Icon: BellIcon,
-    name: "Email Notifications",
-    description: "Get notified when something happens.",
+    name: "Audit Log Alerts",
+    description: "Get real-time push logs when files are uploaded, decrypted, or session tokens are rotated.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -290,8 +291,8 @@ const features = [
   },
   {
     Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    name: "Secure API Pipeline",
+    description: "Go REST API gateway seamlessly routing encrypted data to Cloudflare R2 and organization tables.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
@@ -301,8 +302,8 @@ const features = [
   },
   {
     Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    name: "Audit Timeline Filter",
+    description: "Query and filter security history and transaction logs by database timestamp.",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
@@ -318,15 +319,21 @@ const features = [
 
 export default function BentoFeatures() {
   return (
-    <section className="py-24 px-4 max-w-5xl mx-auto">
-      <div className="flex flex-col items-center text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
-          It's all about security quality
+    <section className="py-24 w-full max-w-container mx-auto px-4">
+      <div className="flex flex-col items-center text-center mb-16 relative">
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-64 w-64 rounded-full bg-[#FF7B2E]/5 blur-3xl" />
+        <h2 className="mb-4 text-xs font-bold tracking-widest text-[#FF5C00] uppercase z-10">
+          Multi-Tenant SaaS Security
         </h2>
+        <BlurFade delay={0.75} inView>
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight mb-6 z-10 fade-bottom uppercase">
+            It's All About Security Quality
+          </h2>
+        </BlurFade>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-          In a world where everybody can ship a new app overnight, the key is to stand out.
-          Generic secret managers won't protect you from sophisticated attacks.
-          With VaultZero, you can make sure your architecture is unique and uncompromising.
+          Generic secret managers won't protect you from cross-tenant leakage.
+          With ShadowKeep, we construct a mathematically isolated architecture using scoped database contexts,
+          server-wrapped envelope encryption, and dedicated R2 bucket directories.
         </p>
       </div>
 

@@ -11,6 +11,11 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+export const metadata = {
+  title: "ShadowKeep - Secure Multi-Tenant Backend",
+  description: "An open-source, edge-ready security vault. Shield your tenant data with AES-256-GCM envelope encryption, Cloudflare R2 storage, and scoped JWT sessions.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

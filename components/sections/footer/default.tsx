@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
 import {
   Footer,
   FooterBottom,
@@ -32,46 +31,46 @@ interface FooterProps {
 }
 
 export default function FooterSection({
-  logo = <LaunchUI />,
-  name = "Launch UI",
+  logo = <img src="/logo.png" alt="ShadowKeep Logo" className="h-6 w-auto filter brightness-110" />,
+  name = "ShadowKeep",
   columns = [
     {
       title: "Product",
       links: [
-        { text: "Changelog", href: "https://www.launchuicomponents.com/" },
-        { text: "Documentation", href: "https://www.launchuicomponents.com/" },
+        { text: "API Status", href: "#" },
+        { text: "Documentation", href: "#" },
       ],
     },
     {
-      title: "Company",
+      title: "Resources",
       links: [
-        { text: "About", href: "https://www.launchuicomponents.com/" },
-        { text: "Careers", href: "https://www.launchuicomponents.com/" },
-        { text: "Blog", href: "https://www.launchuicomponents.com/" },
+        { text: "Self-Hosting Go", href: "#" },
+        { text: "R2 Integration", href: "#" },
+        { text: "AES Security Specs", href: "#" },
       ],
     },
     {
       title: "Contact",
       links: [
-        { text: "Discord", href: "https://www.launchuicomponents.com/" },
-        { text: "Twitter", href: "https://www.launchuicomponents.com/" },
-        { text: "GitHub", href: "https://www.launchuicomponents.com/" },
+        { text: "Discord", href: "#" },
+        { text: "Twitter", href: "#" },
+        { text: "GitHub", href: "#" },
       ],
     },
   ],
-  copyright = "© 2026 Mikołaj Dobrucki. All rights reserved",
+  copyright = "© 2026 ShadowKeep. All rights reserved.",
   policies = [
-    { text: "Privacy Policy", href: "https://www.launchuicomponents.com/" },
-    { text: "Terms of Service", href: "https://www.launchuicomponents.com/" },
+    { text: "Privacy Policy", href: "#" },
+    { text: "Terms of Service", href: "#" },
   ],
   showModeToggle = true,
   className,
 }: FooterProps) {
   return (
-    <footer className={cn("bg-background w-full px-4", className)}>
-      <div className="max-w-container mx-auto">
+    <footer className={cn("bg-background w-full max-w-container mx-auto px-4", className)}>
+      <div className="w-full">
         <Footer>
-          <FooterContent>
+          <FooterContent className="lg:grid-cols-4">
             <FooterColumn className="col-span-2 sm:col-span-3 md:col-span-1">
               <div className="flex items-center gap-2">
                 {logo}

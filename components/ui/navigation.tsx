@@ -7,7 +7,6 @@ import { ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
 
-import LaunchUI from "../logos/launch-ui"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -48,75 +47,76 @@ interface NavigationProps {
 export default function Navigation({
   menuItems = [
     {
-      title: "Getting started",
+      title: "Security Shield",
       content: "default",
     },
     {
-      title: "Components",
+      title: "Core Platform",
       content: "components",
     },
     {
-      title: "Documentation",
+      title: "API Reference",
       isLink: true,
-      href: "https://www.launchuicomponents.com/",
+      href: "#",
     },
   ],
   components = [
     {
-      title: "Alert Dialog",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/alert-dialog`,
+      title: "Multi-Tenant Schema Isolation",
+      href: "#",
       description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
+        "Separate database scopes per organization mapped using strict tenant context queries.",
     },
     {
-      title: "Hover Card",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/hover-card`,
+      title: "OAuth 2.0 & JWT Sessions",
+      href: "#",
       description:
-        "For sighted users to preview content available behind a link.",
+        "Long-lived 7-day refresh tokens and short-lived 15-minute access tokens for API requests.",
     },
     {
-      title: "Progress",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/progress`,
+      title: "AES-256-GCM Envelope Wrap",
+      href: "#",
       description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+        "Files encrypted with a unique, randomized DEK, wrapped by a securely stored Master Key.",
     },
     {
-      title: "Scroll Area",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/scroll-area`,
-      description: "A scrollable container with custom scrollbars.",
+      title: "PostgreSQL & R2 Integration",
+      href: "#",
+      description:
+        "Structured metadata tracked in PostgreSQL with raw encrypted payloads uploaded to Cloudflare R2.",
     },
     {
-      title: "Tabs",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/tabs`,
+      title: "API Rate Limiting",
+      href: "#",
       description:
-        "A set of layered sections of content, known as tab panels, that are displayed one at a time.",
+        "Parametrized inputs, SQL injection shields, and rate limiters protecting public auth endpoints.",
     },
     {
-      title: "Tooltip",
-      href: `${"https://www.launchuicomponents.com/"}/docs/primitives/tooltip`,
+      title: "Memory-Only Decryption",
+      href: "#",
       description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+        "Unwrapped DEK decryption happens strictly in volatile RAM, returning clean stream bytes.",
     },
   ],
-  logo = <LaunchUI />,
-  logoTitle = "Launch UI",
-  logoDescription = "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
-  logoHref = "https://www.launchuicomponents.com/",
+  logo = <img src="/logo.png" alt="ShadowKeep Logo" className="h-8 w-auto filter brightness-110" />,
+  logoTitle = "ShadowKeep",
+  logoDescription = "A self-hostable multi-tenant security backend built with Go standard library and PostgreSQL.",
+  logoHref = "/",
   introItems = [
     {
-      title: "Introduction",
-      href: "https://www.launchuicomponents.com/",
-      description: "Reusable components built using Radix UI and Tailwind CSS.",
+      title: "Quantum Nonce Shield",
+      href: "#",
+      description: "High-entropy entropy pool rotation for every AES-GCM operation.",
     },
     {
-      title: "Installation",
-      href: "https://www.launchuicomponents.com/",
-      description: "How to install dependencies and structure your app.",
+      title: "One-Click GDPR Burner",
+      href: "#",
+      description: "Instantly purge organization ciphertexts from both DB and R2 in 100ms.",
     },
     {
-      title: "Typography",
-      href: "https://www.launchuicomponents.com/",
-      description: "Styles for headings, paragraphs, and lists.",
+      title: "Polymorphic Key Rotator",
+      href: "#",
+      description: "Dynamically rotate the environment Master Key without disrupting live active sessions.",
     },
   ],
 }: NavigationProps) {

@@ -11,6 +11,8 @@ import {
   siTailwindcss
 } from "simple-icons";
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { cn } from '@/lib/utils';
+import { BlurFade } from '@/components/ui/blur-fade';
 
 interface SimpleIcon {
   title: string;
@@ -37,22 +39,28 @@ const SimpleIconComponent = ({ icon }: { icon: SimpleIcon }) => {
   );
 };
 
-export default function CloudIntegrations() {
+export default function TechStack({ className }: { className?: string }) {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-12 relative glass-5 rounded-4xl ">
+    <div className={cn("w-full flex flex-col md:flex-row items-center justify-between gap-6 relative glass-5 rounded-4xl p-6 md:p-8 overflow-hidden", className)}>
       {/* Top transition line */}
       <div className="absolute top-0 left-4 right-4 border-t border-zinc-900" />
 
-      <div className="flex-1 flex flex-col gap-4 text-left max-w-lg">
-        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white uppercase">
-          Built for Speed
+      <div className="flex-1 flex flex-col gap-4 text-left max-w-lg relative z-10">
+        <div className="pointer-events-none absolute -top-10 -left-10 h-[200px] w-[200px] rounded-full bg-[#FF7B2E]/5 blur-3xl -z-10" />
+        <h2 className="text-xs font-bold tracking-widest text-[#FF5C00] uppercase">
+          Technology
         </h2>
-        <p className="text-zinc-400 text-base leading-relaxed">
+        <BlurFade delay={0.75} inView>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-white fade-bottom uppercase">
+            Built For Speed
+          </h2>
+        </BlurFade>
+        <p className="text-zinc-400 text-sm leading-relaxed">
           Frontend powered by <span className="text-white font-semibold">React</span> and <span className="text-white font-semibold">Next.js</span> for a responsive user interface. Backend crafted using Go's <span className="text-white font-semibold">Standard Library</span> — zero third-party frameworks. We compiled everything into single-binary efficiency to deliver sub-millisecond encryption and decryption routines. Simple. Raw. Fast.
         </p>
       </div>
 
-      <div className="relative flex-1 flex items-center justify-center min-h-[300px]">
+      <div className="relative flex-1 flex items-center justify-center min-h-[200px] z-10">
         {/* Completely borderless, cardless cloud integration container */}
         <IconCloud
           icons={[
@@ -80,6 +88,6 @@ export default function CloudIntegrations() {
         />
       </div>
       <BackgroundBeams />
-    </section>
+    </div>
   );
 }

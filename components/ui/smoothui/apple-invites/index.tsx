@@ -424,7 +424,7 @@ export default function AppleInvites({
                 }}
               >
                 <span
-                  className="flex flex-row items-center rounded-full bg-black/30 font-medium text-white backdrop-blur-xl"
+                  className="flex flex-row items-center rounded-full bg-black/60 font-medium text-white"
                   style={{
                     fontSize: `${badgeFontSize}px`,
                     paddingLeft: `${badgePaddingX}px`,
@@ -499,11 +499,7 @@ export default function AppleInvites({
                   {event.location}
                 </p>
               </div>
-              <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-2 [mask-image:linear-gradient(to_bottom,transparent_50%,black_75%)]">
-                <div className="absolute -inset-4 filter blur-[12px]">
-                  {renderBackground(event)}
-                </div>
-              </div>
+              {/* Removed blurred image reflection layer to optimize scroll rendering performance */}
             </div>
           </motion.div>
         ))}

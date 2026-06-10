@@ -27,12 +27,12 @@ interface HeroProps {
 
 const DEFAULT_HERO_BUTTONS: HeroButtonProps[] = [
   {
-    href: "https://www.launchuicomponents.com/",
+    href: "#",
     text: "Get Started",
     variant: "default",
   },
   {
-    href: "https://www.launchuicomponents.com/",
+    href: "https://github.com/launchui",
     text: "GitHub",
     variant: "glow",
     icon: <Github className="mr-2 size-4" />,
@@ -54,9 +54,9 @@ const DEFAULT_HERO_BADGE = (
         WebkitClipPath: "padding-box",
       }}
     />
-    🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+    🔒 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
     <AnimatedGradientText className="text-sm font-medium">
-      Introducing Magic UI
+      Introducing ShadowKeep 1.0
     </AnimatedGradientText>
     <ChevronRight className="ml-1 size-4 stroke-neutral-500 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
   </div>
@@ -66,7 +66,7 @@ const DEFAULT_HERO_MOCKUP = (
   <Screenshot
     srcLight="/linear.webp"
     srcDark="/linear.webp"
-    alt="Launch UI app screenshot"
+    alt="ShadowKeep Dashboard UI"
     width={1248}
     height={765}
     className="w-full"
@@ -74,8 +74,8 @@ const DEFAULT_HERO_MOCKUP = (
 )
 
 export default function Hero({
-  title = "Give your big idea the design it deserves",
-  description = "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+  title = "The Secure Multi Tenant Backend For Critical Data",
+  description = "An open-source, edge-ready security vault. Shield your tenant data with AES-256-GCM envelope encryption, Cloudflare R2 storage, and scoped JWT sessions.",
   mockup = DEFAULT_HERO_MOCKUP,
   badge = DEFAULT_HERO_BADGE,
   buttons = DEFAULT_HERO_BUTTONS,
@@ -88,10 +88,10 @@ export default function Hero({
         className
       )}
     >
-      <div className="mx-auto flex max-w-container flex-col gap-12 pt-16 sm:gap-24">
+      <div className="mx-auto flex w-full max-w-container flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {badge !== false && badge}
-          <h1 className="relative z-10 inline-block animate-appear bg-linear-to-r from-foreground to-foreground bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight dark:to-muted-foreground">
+          <h1 className="relative z-10 inline-block animate-appear bg-linear-to-r from-foreground to-foreground bg-clip-text text-4xl leading-tight font-black text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight dark:to-muted-foreground fade-bottom uppercase">
             {title}
           </h1>
           <p className="text-md relative z-10 max-w-[740px] animate-appear font-medium text-balance text-muted-foreground opacity-0 delay-100 sm:text-xl">

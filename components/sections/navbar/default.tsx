@@ -2,11 +2,10 @@
 
 import { type VariantProps } from "class-variance-authority";
 import { Menu } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
-import LaunchUI from "../../logos/launch-ui";
 import { Button, buttonVariants } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
@@ -42,19 +41,19 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
-  name = "Launch UI",
-  homeUrl = "https://www.launchuicomponents.com/",
+  logo = <img src="/logo.png" alt="ShadowKeep Logo" className="h-8 w-auto filter brightness-110" />,
+  name = "ShadowKeep",
+  homeUrl = "/",
   mobileLinks = [
-    { text: "Getting Started", href: "https://www.launchuicomponents.com/" },
-    { text: "Components", href: "https://www.launchuicomponents.com/" },
-    { text: "Documentation", href: "https://www.launchuicomponents.com/" },
+    { text: "Documentation", href: "#" },
+    { text: "Core API", href: "#" },
+    { text: "Security Gimmicks", href: "#" },
   ],
   actions = [
-    { text: "Sign in", href: "https://www.launchuicomponents.com/", isButton: false },
+    { text: "Sign in", href: "#", isButton: false },
     {
       text: "Get Started",
-      href: "https://www.launchuicomponents.com/",
+      href: "#",
       isButton: true,
       variant: "default",
     },
@@ -63,10 +62,19 @@ export default function Navbar({
   customNavigation,
   className,
 }: NavbarProps) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <header className={cn("sticky top-0 z-50 -mb-4 px-4 pb-4", className)}>
       <div className="fade-bottom bg-background/15 absolute left-0 h-24 w-full backdrop-blur-lg"></div>
-      <div className="max-w-container relative mx-auto">
+      <div className="w-full max-w-container relative mx-auto">
         <NavbarComponent>
           <NavbarLeft>
             <a

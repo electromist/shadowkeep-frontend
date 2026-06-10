@@ -93,7 +93,7 @@ const demoEvents: Event[] = [
 ];
 
 const TopInvestors = () => (
-    <div className="flex min-h-[500px] items-center justify-center">
+    <div className="relative w-full py-12 flex min-h-[500px] items-center justify-center">
         <AppleInvites
             cardWidth={{
                 base: 100,
@@ -106,7 +106,7 @@ const TopInvestors = () => (
         />
         <Glow
             variant="below"
-            className="-z-10 opacity-10"
+            className="opacity-20 dark:opacity-20 pointer-events-none overflow-x-clip"
         />
     </div>
 );

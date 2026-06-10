@@ -69,6 +69,7 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-appear: appear 0.6s forwards ease-out;
   --animate-appear-zoom: appear-zoom 0.6s forwards ease-out;
+  --animate-logo-cloud: logo-cloud 30s linear infinite;
 
   /* Breakpoints */
   --breakpoint-xs: 30rem;
@@ -93,21 +94,31 @@
     }
   }
 
+  @keyframes logo-cloud {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - 1.5rem));
+    }
+  }
+
   @keyframes appear {
     0% {
       opacity: 0;
       transform: translateY(1rem);
       filter: blur(0.5rem);
-    }
+      /* }
 
     50% {
-      filter: blur(0);
+      filter: blur(0); */
     }
 
     100% {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
+      /* filter: blur(0); */
     }
   }
 
@@ -125,24 +136,33 @@
 
   --animate-marquee: marquee var(--duration) infinite linear;
 
-  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite
-;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
   @keyframes marquee {
-  from {
-    transform: translateX(0);}
-  to {
-    transform: translateX(calc(-100% - var(--gap)));}}
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);}
-  to {
-    transform: translateY(calc(-100% - var(--gap)));}}
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 :root {
   /* Accent colors */
-  --brand: oklch(66.5% 0.1804 47.04);
-  --brand-foreground: oklch(75.77% 0.159 55.91);
+  --brand: #FF7B2E;
+  --brand-foreground: #FF5C00;
 
   /* Customized shadcn/ui colors */
   --background: oklch(97.65% 0.001 17.18);
@@ -190,8 +210,8 @@
 
 .dark {
   /* Accent colors */
-  --brand: oklch(83.6% 0.1177 66.87);
-  --brand-foreground: oklch(75.77% 0.159 55.91);
+  --brand: #FF7B2E;
+  --brand-foreground: #FF5C00;
 
   /* Customized shadcn/ui colors */
   --background: oklch(0.141 0.005 285.823);
@@ -250,6 +270,7 @@
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-50%);
   }
@@ -259,6 +280,7 @@
   0% {
     transform: translateY(-50%);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -270,6 +292,7 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
+
   .animate-scroll-down {
     animation-name: scroll-down-smooth;
     animation-timing-function: linear;
