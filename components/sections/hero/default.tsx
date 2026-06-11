@@ -23,11 +23,12 @@ interface HeroProps {
   badge?: ReactNode | false
   buttons?: HeroButtonProps[] | false
   className?: string
+  isOverlay?: boolean
 }
 
 const DEFAULT_HERO_BUTTONS: HeroButtonProps[] = [
   {
-    href: "#",
+    href: "/register",
     text: "Get Started",
     variant: "default",
   },
@@ -54,7 +55,7 @@ const DEFAULT_HERO_BADGE = (
         WebkitClipPath: "padding-box",
       }}
     />
-    🔒 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+    🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
     <AnimatedGradientText className="text-sm font-medium">
       Introducing ShadowKeep 1.0
     </AnimatedGradientText>
@@ -80,7 +81,10 @@ export default function Hero({
   badge = DEFAULT_HERO_BADGE,
   buttons = DEFAULT_HERO_BUTTONS,
   className,
+  isOverlay = false,
 }: HeroProps) {
+  const finalMockup = isOverlay ? false : mockup;
+  const finalBadge = isOverlay ? false : badge;
   return (
     <Section
       className={cn(
@@ -90,7 +94,7 @@ export default function Hero({
     >
       <div className="mx-auto flex w-full max-w-container flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
-          {badge !== false && badge}
+          {finalBadge !== false && finalBadge}
           <h1 className="relative z-10 inline-block animate-appear bg-linear-to-r from-foreground to-foreground bg-clip-text text-4xl leading-tight font-black text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight dark:to-muted-foreground fade-bottom uppercase">
             {title}
           </h1>
@@ -113,7 +117,7 @@ export default function Hero({
               ))}
             </div>
           )}
-          {mockup !== false && (
+          {finalMockup !== false && (
             <div className="relative w-full pt-12">
               <ContainerScroll className="w-full">
                 <img

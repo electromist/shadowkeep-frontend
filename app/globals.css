@@ -259,6 +259,14 @@
 @layer base {
   * {
     @apply border-border;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   body {
@@ -298,4 +306,18 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
+}
+
+/* Custom Auth Card & Layout Rules */
+.glow-overlay-item>* {
+  visibility: hidden !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

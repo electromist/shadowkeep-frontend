@@ -17,7 +17,7 @@ interface CTAProps {
 
 const DEFAULT_CTA_BUTTONS: CTAButtonProps[] = [
   {
-    href: "#",
+    href: "/register",
     text: "Get Started",
     variant: "default",
   },

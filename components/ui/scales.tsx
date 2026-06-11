@@ -56,18 +56,18 @@ export function ScalesLayout({ children, active = true }: { children: React.Reac
   if (!active) {
     return <div className="w-full">{children}</div>;
   }
-  
+
   return (
-    <div className="relative w-full min-h-screen bg-background overflow-x-hidden">
+    <div className="relative w-full min-h-screen bg-background overflow-x-clip">
       <div className="relative mx-auto max-w-[1440px] w-full">
         {/* Left vertical border with Scales */}
-        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-4 border-r border-zinc-800/30 z-20">
-          <Scales orientation="vertical" size={10} className="opacity-25" />
+        <div className="hidden md:block absolute left-0 top-0 bottom-0 w-6 border-l border-r border-zinc-800/30 z-20">
+          <Scales orientation="diagonal" size={6} className="opacity-100" />
         </div>
 
         {/* Right vertical border with Scales */}
-        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-4 border-l border-zinc-800/30 z-20">
-          <Scales orientation="vertical" size={10} className="opacity-25" />
+        <div className="hidden md:block absolute right-0 top-0 bottom-0 w-6 border-l border-r border-zinc-800/30 z-20">
+          <Scales orientation="diagonal" size={6} className="opacity-100" />
         </div>
 
         {/* Main Content with padding so it stays exactly between scale columns */}

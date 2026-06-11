@@ -22,7 +22,7 @@ const DEFAULT_PRICING_PLANS: PricingColumnProps[] = [
     cta: {
       variant: "glow",
       label: "Get started for free",
-      href: "#",
+      href: "/register",
     },
     features: [
       "Multi-tenant isolation logic",
@@ -42,7 +42,7 @@ const DEFAULT_PRICING_PLANS: PricingColumnProps[] = [
     cta: {
       variant: "default",
       label: "Get Startup access",
-      href: "#",
+      href: "/register?plan=startup",
     },
     features: [
       "Dedicated Cloudflare R2 bucket",
@@ -62,7 +62,7 @@ const DEFAULT_PRICING_PLANS: PricingColumnProps[] = [
     cta: {
       variant: "default",
       label: "Contact security sales",
-      href: "#",
+      href: "/register?plan=enterprise",
     },
     features: [
       "Isolated PostgreSQL schemas",

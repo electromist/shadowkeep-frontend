@@ -255,7 +255,7 @@ export default function GlowHover({
             maskImage: `radial-gradient(${maskSize}px ${maskSize}px at ${mousePosition.x}px ${mousePosition.y}px, #000 1%, transparent 50%)`,
             WebkitMaskImage: `radial-gradient(${maskSize}px ${maskSize}px at ${mousePosition.x}px ${mousePosition.y}px, #000 1%, transparent 50%)`,
             transition:
-              "opacity 200ms ease, mask-image 200ms ease, -webkit-mask-image 200ms ease",
+              "opacity 200ms ease",
             willChange: "mask-image, opacity",
           }}
         >
